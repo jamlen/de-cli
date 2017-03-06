@@ -61,6 +61,7 @@ Most commands can take a `--all` option, instead of a project which will perform
 ```
 
 ### `app`
+Note that this command currently requires [`forever`](https://www.npmjs.com/package/forever) to start and stop the applications.
 ```shell
   Commands:
 
