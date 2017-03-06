@@ -17,6 +17,9 @@ Install the module with: `npm install -g de-cli` and create a config file named 
 # Documentation
 
 ## Available Commands
+
+Most commands can take a `--all` option, instead of a project which will perform the command against all repos in all projects, except for projects that have `excludeFromAll` specified.
+
 ```shell
   Usage: de [options] [command]
 
@@ -119,27 +122,29 @@ An example `de-config` file:
       "ignores": "grunt*"
     },
     "projects": [{
-        "name": "extranet",
-        "description": "Node.JS extranet",
-        "depends": ["project2"],
+        "name": "project1",
+        "description": "Node.JS project",
+        "depends": ["github"],
         "defaultBranch": "develop",
         "excludeFromAll": false,
         "repos": [
-            "jamlen/project1"
+            "jamlen/repo1",
+            "jamlen/repo2"
         ]
     }, {
-        "name": "extranet",
-        "description": "Node.JS extranet",
-        "depends": [],
+        "name": "github",
+        "description": "public github projects",
         "defaultBranch": "develop",
-        "excludeFromAll": false,
+        "excludeFromAll": true,
         "repos": [
-            "jamlen/project2"
+            "depcheck/depcheck",
+            "https://github.com/tjunnone/npm-check-updates.git"
         ]
     },
     "modules": [
         "guzzlerio/deride@develop"
     ]
+}
 ```
 
 ---

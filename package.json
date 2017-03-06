@@ -1,8 +1,11 @@
 {
   "name": "de-cli",
   "description": "DevEnv helper CLI",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/jamlen/de-cli",
+  "bin": {
+    "de", "./bin/de"
+  },
   "author": {
     "name": "jamlen",
     "email": "pepofiq@inboxbear.com"
