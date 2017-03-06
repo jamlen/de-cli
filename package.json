@@ -1,7 +1,7 @@
 {
   "name": "de-cli",
   "description": "DevEnv helper CLI",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://github.com/jamlen/de-cli",
   "bin": {
     "de": "./bin/de"
@@ -37,7 +37,7 @@
     "sync-exec": "^0.6.2",
     "yamljs": "^0.2.8"
   },
-  "peerDependencies":{
+  "peerDependencies": {
     "depcheck": "^0.6.7",
     "npm-check-updates": "^2.10.3"
   }
