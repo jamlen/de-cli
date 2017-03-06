@@ -18,4 +18,13 @@ program
         helper.setup(options, helper.done);
     });
 
+program
+    .command('config')
+    .description('Display current configuration')
+    .action(function () {
+        console.log('Config file', helper.config.filename);
+        console.log(require('util').inspect(helper.config.raw, {depth:10}));
+        helper.done();
+    })
+
 program.parse(process.argv);
