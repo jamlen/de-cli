@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var helper = require('../lib/helper');
+
+program
+    .command('grunt')
+    .description('Run grunt on the configured projects')
+    .option('-a, --all', 'Act on all configured projects')
+    .action(function(options) {
+        if (options.all) {
+            helper.test.gruntAll(helper.done);
+        } else {
+            helper.test.grunt(options, helper.done);
+        }
+    });
+
+program.parse(process.argv)

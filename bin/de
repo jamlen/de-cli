@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var helper = require('../lib/helper');
+var version = require('../package.json').version;
+
+program
+    .version(version)
+    .command('git', 'Perform git based commands')
+    .command('npm', 'Perform npm based commands')
+    .command('app', 'Perform app based commands')
+    .command('test', 'Perform grunt based commands')
+    .command('clean', 'Perform clean up based commands')
+    .command('setup')
+    .option('-c, --clean', 'Clean all node_module folders and empty redis and rabbit')
+    .description('Git pull, npm link & install')
+    .action(function(options) {
+        helper.setup(options, helper.done);
+    });
+
+program.parse(process.argv);

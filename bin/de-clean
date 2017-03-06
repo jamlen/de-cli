@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var helper = require('../lib/helper');
+var clean = helper.clean;
+
+program
+    .command('modules')
+    .description('Remove all of the node modules')
+    .action(function(options) {
+        clean.modules(options, helper.done);
+    });
+
+program.parse(process.argv)

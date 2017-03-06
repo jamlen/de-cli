@@ -1,0 +1,30 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var helper = require('../lib/helper');
+
+program
+    .command('start')
+    .description('Start configured projects')
+    .option('-a, --all', 'Act on all configured projects')
+    .action(function(options) {
+        if (options.all) {
+            helper.app.startAll(helper.done);
+        } else {
+            helper.app.start(options, helper.done);
+        }
+    });
+
+program
+    .command('stop')
+    .description('Stop configured projects')
+    .option('-a, --all', 'Act on all configured projects')
+    .action(function(options) {
+        if (options.all) {
+            helper.app.stopAll(helper.done);
+        } else {
+            helper.app.stop(options, helper.done);
+        }
+    });
+
+program.parse(process.argv)

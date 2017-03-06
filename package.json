@@ -1,0 +1,41 @@
+{
+  "name": "de-cli",
+  "description": "DevEnv helper CLI",
+  "version": "0.1.0",
+  "homepage": "https://github.com/jamlen/de-cli",
+  "author": {
+    "name": "jamlen",
+    "email": "pepofiq@inboxbear.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jamlen/de-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jamlen/de-cli/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/jamlen/de-cli/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "lib/index.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "keywords": [],
+  "dependencies": {
+    "async": "^2.1.5",
+    "commander": "^2.9.0",
+    "debug": "^2.6.1",
+    "lodash": "^4.17.4",
+    "ssh-url": "^0.1.5",
+    "sync-exec": "^0.6.2",
+    "yamljs": "^0.2.8"
+  },
+  "peerDependencies":{
+    "depcheck": "^0.6.7",
+    "npm-check-updates": "^2.10.3"
+  }
+}

@@ -1,0 +1,42 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var helper = require('../lib/helper');
+
+program
+    .command('clean')
+    .description('Clean node_modules')
+    .action(function() {
+        helper.executor.queue('Cleaning node_modules', 'find /storage -maxdepth 3 | grep -i node_modules | xargs -n 1 rm -rf', true);
+        helper.executor.execute(helper.done);
+    });
+
+program
+    .command('link')
+    .description('Link configured modules')
+    .option('-a, --all', 'Act on all configured modules')
+    .action(function(options) {
+        helper.npm.linkAll(helper.done);
+    });
+
+program
+    .command('install')
+    .description('Install configured repos')
+    .option('-a, --all', 'Act on all configured repos')
+    .action(function(options) {
+        helper.npm.installAll(helper.done);
+    });
+
+program
+    .command('status')
+    .description('Perform npm-check-updates and depcheck on configured repos')
+    .option('-a, --all', 'Act on all configured repos')
+    .action(function(options) {
+        if (options.all) {
+            helper.npm.statusAll(helper.done);
+        } else {
+            helper.npm.status(options, helper.done);
+        }
+    });
+
+program.parse(process.argv)
