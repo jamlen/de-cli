@@ -141,7 +141,7 @@ An example `de-config` file:
             "depcheck/depcheck",
             "https://github.com/tjunnone/npm-check-updates.git"
         ]
-    },
+    }],
     "modules": [
         "guzzlerio/deride@develop"
     ]
