@@ -112,6 +112,42 @@ Array of repos. These can be full ssh or https git clone urls, or short user/rep
 ### Example config
 An example `de-config` file:
 
+#### Yaml
+```yaml
+---
+npmInstalls: [bower, nesh, mversion]
+folder: ~/dev/clients/LateRooms/src
+defaultRepo: git@github.com
+defaultBranch: master
+setupCommands: [git pull, npm link, npm install]
+depcheck:
+  ignores: grunt*
+
+projects:
+  - name: project1
+    description: Node.JS project
+    depends: [github]
+    defaultBranch: develop
+    excludeFromAll: false
+    repos:
+      - jamlen/repo1
+      - jamlen/repo2
+    modules:
+      - jamlen/module
+
+  - name: github
+    description: public github projects
+    defaultBranch: develop
+    excludeFromAll: true
+    repos:
+      - depcheck/depcheck
+      - https://github.com/tjunnone/npm-check-updates.git
+
+modules:
+  - guzzlerio/deride@develop
+```
+
+#### Json
 ```json
 {
     "npmInstalls": ["bower", "nesh", "mversion"],
@@ -131,6 +167,9 @@ An example `de-config` file:
         "repos": [
             "jamlen/repo1",
             "jamlen/repo2"
+        ],
+        "modules": [
+            "jamlen/module"
         ]
     }, {
         "name": "github",
