@@ -116,7 +116,7 @@ An example `de-config` file:
 ```yaml
 ---
 npmInstalls: [bower, nesh, mversion]
-folder: ~/dev/clients/LateRooms/src
+folder: ~/dev/src
 defaultRepo: git@github.com
 defaultBranch: master
 setupCommands: [git pull, npm link, npm install]
