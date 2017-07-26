@@ -16,7 +16,11 @@ program
     .description('Link configured modules')
     .option('-a, --all', 'Act on all configured modules')
     .action(function(options) {
-        helper.npm.linkAll(helper.done);
+        if (options.all) {
+            helper.npm.linkAll(helper.done);
+        } else {
+            helper.npm.link(options, helper.done);
+        }
     });
 
 program
@@ -24,7 +28,11 @@ program
     .description('Install configured repos')
     .option('-a, --all', 'Act on all configured repos')
     .action(function(options) {
-        helper.npm.installAll(helper.done);
+        if (options.all) {
+            helper.npm.installAll(helper.done);
+        } else {
+            helper.npm.install(options, helper.done);
+        }
     });
 
 program

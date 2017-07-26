@@ -142,6 +142,14 @@ projects:
     repos:
       - depcheck/depcheck
       - https://github.com/tjunnone/npm-check-updates.git
+  - name: newrelic
+    description: Repos for newrelic agents and modules
+    excludeFromAll: true
+    npm:
+      user: newrelic
+    repos:
+      - newrelic/node-native-metrics
+
 
 modules:
   - guzzlerio/deride@develop
@@ -179,6 +187,16 @@ modules:
         "repos": [
             "depcheck/depcheck",
             "https://github.com/tjunnone/npm-check-updates.git"
+        ]
+    }, {
+        "name": "newrelic",
+        "description": "Repos for newrelic agents and modules",
+        "excludeFromAll": true,
+        "npm": {
+          "user": "newrelic"
+        },
+        "repos": [
+            "newrelic/node-native-metrics"
         ]
     }],
     "modules": [
